@@ -1,0 +1,26 @@
+[test0]
+#drv_boardcfg=centennial_murata_mse_cc_windows_dut
+#drv_tag=6_10_178_39
+drv_boardcfg=MURATA_MSE_private_ciswrite_pkg_stresstest_win
+drv_branch=PHO2203RC1_REL_
+drv_tag=6_25_73_11
+#drv_tag=6_25_63_105
+cond_temperature=25
+cond_vbatt=3.6
+test=mfgc
+test_args= --script="emb_generic/emb.py" --connector="hiroze" --comment="First_try" --mfgc_ver="2.7.62"
+dutpos=0
+drv_load=yes
+enabled=yes
+
+[test1]
+base=test0
+test_args= --script="emb_generic/emb.py" --connector="hiroze" --comment="Second_try" --mfgc_ver="2.7.62"
+drv_load=no
+enabled=yes
+
+[test2]
+base=test0
+test_args= --script="emb_generic/emb.py" --connector="hiroze" --comment="Third_try" --mfgc_ver="2.7.62"
+drv_load=no
+enabled=yes

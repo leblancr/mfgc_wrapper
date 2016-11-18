@@ -1,0 +1,3 @@
+./mfgc_wrapper.py --useduts=0 --script="emb_generic/emb.py" --connector="murata" --temp=25 --comment="First_try" --interface="hsic::192.168.1.1" --killmfgc=1 --mfgc_ver="2.7.43" --station=roo
+
+

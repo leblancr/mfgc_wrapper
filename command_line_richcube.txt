@@ -1,0 +1,1 @@
+./mfgc_wrapper.py --boardtype="centennial" --useduts=0,611 --script="emb_generic/emb.py" --connector="hirose" --temp=25 --interface="hsic::192.168.1.1" --killmfgc=1 --mfgc_ver="2_7_58" --station=richcube --comment="richcube"

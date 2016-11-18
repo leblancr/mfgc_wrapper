@@ -1,0 +1,34 @@
+##### DUT SETUP ############################
+#DUT0: SN921 Imperial Murata_MT
+#DUT1: SN305 Centennial USI_ST
+#DUT2: SN633 Imperial USI_MK ES3.1
+
+#### Drivers ################################ 
+
+### 43342 ImperialChardonnay MURATA MT Driver ##########
+wl --socket 192.168.1.1 hsic_download Z:\projects\hnd_swbuild\build_linux\PHOENIX2_REL_6_10_178_39\linux-mfgtest-dongle-usb\2013.2.12.0\release\packages\CHARDONNAY_MURATA_MT\firmware\43342a0-ram\usb-ag-mfgtest-nodis-seqcmds-lp-ram.bin.trx Z:\projects\hnd_swbuild\build_linux\PHOENIX2_REL_6_10_178_39\linux-mfgtest-dongle-usb\2013.2.12.0\release\packages\CHARDONNAY_MURATA_MT\nvram\bcm943342ChardonnayMurataMT.nvm
+                             
+### 4334 Centennial USI_ST  ##############
+wl --socket 192.168.1.1 hsic_download Z:\projects\hnd_swbuild\build_linux\PHO2178RC40_REL_6_21_7\linux-mfgtest-dongle-usb\2013.2.27.0\release\bcm\firmware\4334b0-ram\usb-ag-mfgtest-nodis-swdiv-seqcmds.bin.trx Z:\projects\hnd_swbuild\build_linux\PHO2178RC40_REL_6_21_7\linux-mfgtest-dongle-usb\2013.2.27.0\src\shared\nvram\bcm94334OlympicCent_usi_st.txt
+wl --socket 192.168.1.1 hsic_download Z:\projects\hnd_swbuild\build_linux\PHO2178RC40_REL_6_21_7\linux-mfgtest-dongle-usb\2013.2.27.0\release\packages\CENTENNIAL_USI_ST\firmware\4334b1-ram\usb-ag-mfgtest-nodis-seqcmds-lp-ram.bin.trx Z:\projects\hnd_swbuild\build_linux\PHO2178RC40_REL_6_21_7\linux-mfgtest-dongle-usb\2013.2.27.0\release\packages\CENTENNIAL_USI_ST\nvram\bcm94334CentUSIST.nvm
+wl --socket 192.168.1.1 hsic_download Z:\projects\hnd_swbuild\build_linux\PHO2203RC1_REL_6_25_16\linux-mfgtest-dongle-usb\2013.3.8.0\release\packages\CENTENNIAL_USI_ST\firmware\4334b1-ram\usb-ag-mfgtest-nodis-seqcmds-lp-ram.bin.trx Z:\projects\hnd_swbuild\build_linux\PHO2203RC1_REL_6_25_16\linux-mfgtest-dongle-usb\2013.3.8.0\release\packages\CENTENNIAL_USI_ST\nvram\bcm94334CentUSIST.nvm
+
+### 43342 ImperialChardonnay USI_MK Driver ##########
+wl --socket 192.168.1.1 hsic_download Z:\projects\hnd_swbuild\build_linux\PHO2178RC40_REL_6_21_8\linux-mfgtest-dongle-usb\2013.3.4.0\release\packages\CABERNET_USI_MK\firmware\43342a0-ram\usb-ag-mfgtest-nodis-seqcmds-lp-ram.bin.trx Z:\projects\hnd_swbuild\build_linux\PHO2178RC40_REL_6_21_8\linux-mfgtest-dongle-usb\2013.3.4.0\release\packages\CABERNET_USI_MK\nvram\bcm943342CabernetUSIMK.nvm
+wl --socket 192.168.1.1 hsic_download Z:\projects\hnd_swbuild\build_linux\PHO2203RC1_REL_6_25_16\linux-mfgtest-dongle-usb\2013.3.8.0\release\bcm\firmware\43342a0-ram\usb-ag-mfgtest-nodis-swdiv-seqcmds.bin.trx Z:\projects\hnd_swbuild\build_linux\PHO2203RC1_REL_6_25_16\linux-mfgtest-dongle-usb\2013.3.8.0\src\shared\nvram\bcm943342CabernetUSIMK.txt
+wl --socket 192.168.1.1 hsic_download Z:\projects\hnd_swbuild\build_linux\PHO2203RC1_REL_6_25_16_4\linux-mfgtest-dongle-usb\2013.3.11.0\release\packages\CHARDONNAY_USI_MK\firmware\43342a0-ram\usb-ag-mfgtest-nodis-seqcmds-lp-ram.bin.trx Z:\projects\hnd_swbuild\build_linux\PHO2203RC1_REL_6_25_16_4\linux-mfgtest-dongle-usb\2013.3.11.0\release\packages\CHARDONNAY_USI_MK\nvram\bcm943342ChardonnayUSIMK.nvm 
+
+####   Config Files   #######################
+wl --socket 192.168.1.1 sh rmmod dhd
+wl --socket 192.168.1.1 sh dongle_wlregon.sh
+wl --socket 192.168.1.1 sh bcmdl /etc/jffs2/dwnldfile.bin
+wl --socket 192.168.1.1 sh insmod /lib/modules/dhd.ko
+wl --socket 192.168.1.1 sh ifconfig eth1 192.168.3.2 up
+wl --socket 192.168.1.1 up
+wl --socket 192.168.1.1 ver
+
+### mips26 loading ##########################
+wl --socket 192.168.1.1 sh wget -O /tmp/wlmips26 ftp://192.168.1.101/wlmips26
+wl --socket 192.168.1.1 sh chmod a+x /tmp/wlmips26
+wl --socket 192.168.1.1 sh /tmp/wlmips26 ver
+
